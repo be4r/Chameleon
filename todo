@@ -1,0 +1,28 @@
+-PREPARE
+  -crawl + fuzz
+✓   -crawl
+✓     -urls starter-pack <= user input   (what to scan)
+✓     -crawl all urls recursively to get SRC/HREF DEPs
+✓     -save urls
+✓     -add https and ?? protocols
+    -fuzz
+      -go through all DEPs, sending multiple [fuzzed] requests
+      -save them into database
+        -init db
+        -insert
+  -parse raw requests to templates
+    -select data from db
+    -diff
+    -replace VARS with PLACEHOLDERS
+      -choose PLACEHOLDER symbol
+    -save templates [a.k.a plain req with placeholders] into db
+-EXECUTE
+  -web-server
+    -recieve request
+      -keep TCP alive
+      -save request? its HONEYPOT after all
+    -find matching template
+      -??? check article to get what i gotta do cos idk 2hard!!!
+    -construct response
+      -replace PLACEHOLDERS with VARS
+    -respond
