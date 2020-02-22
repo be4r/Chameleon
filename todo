@@ -1,12 +1,27 @@
 -PREPARE
   -crawl + fuzz
-✓   -crawl
+   -crawl
 ✓     -urls starter-pack <= user input   (what to scan)
 ✓     -crawl all urls recursively to get SRC/HREF DEPs
+        #only GET => no params outside URL
+      -lookup forms(not mentioned in article)
+        #not actually described in article but might be important
+        #the crawler still's shit
+        -*main action*
+        -save POST params & headers
 ✓     -save urls
-✓     -add https and ?? protocols
+✓     -add https and ?? protocols 
+        #already supported by py.reqs
     -fuzz
       -go through all DEPs, sending multiple [fuzzed] requests
+        -send regular get/post/head/put/delete/connect/options/trace/path
+        -fuzz - MUTATION-based approach
+          -http headers
+            -COOKIES especially
+          -query params (imitate <form>)
+            -replace with same len strings
+          -no changes in response same => static (no vars)
+           it is parsing task, but can be solved prematurely
       -save them into database
         -init db
         -insert

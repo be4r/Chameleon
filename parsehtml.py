@@ -12,8 +12,10 @@ class Parser(HTMLParser):
         if tag in srctags:
             attr_dict = dict(attrs)
             if 'src' in attr_dict:
+                print(tag)
                 links.append(attr_dict['src'])
             if 'href' in attr_dict:
+                print(tag)
                 links.append(attr_dict['href'])
             for i in links:
                 if i not in self.links and not i.startswith('#'):
