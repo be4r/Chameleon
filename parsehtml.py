@@ -9,18 +9,21 @@ class Parser(HTMLParser):
         self.links = []
     def handle_starttag(self, tag, attrs):
         links = [] #links from this tag
+        attr_dict = dict(attrs)
         if tag in srctags:
-            attr_dict = dict(attrs)
             if 'src' in attr_dict:
-                print(tag)
                 links.append(attr_dict['src'])
             if 'href' in attr_dict:
-                print(tag)
                 links.append(attr_dict['href'])
             for i in links:
                 if i not in self.links and not i.startswith('#'):
                     if not i.startswith('about'):
                         self.links.append(i)
+        if tag == 'form':
+            if 'action' in attr_dict:
+                links.append(attr_dict['action'])
+                #child nodes - ?
+                print(tag, attrs)
 
     def getLinks(self):
         t = self.links

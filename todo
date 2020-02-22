@@ -3,12 +3,13 @@
    -crawl
 ✓     -urls starter-pack <= user input   (what to scan)
 ✓     -crawl all urls recursively to get SRC/HREF DEPs
-        #only GET => no params outside URL
+         #only GET => no params outside URL
       -lookup forms(not mentioned in article)
-        #not actually described in article but might be important
-        #the crawler still's shit
+         #not actually described in article but might be important
+         #the crawler still's shit
         -*main action*
         -save POST params & headers
+	 #need to change parser to check childnodes?
 ✓     -save urls
 ✓     -add https and ?? protocols 
         #already supported by py.reqs
