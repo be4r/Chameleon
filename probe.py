@@ -44,4 +44,4 @@ def crawl_urls(*urls, maxdepth = -1, debug = 0):
     return allurls
 
 if __name__=='__main__':
-    crawl_urls("http://ya.ru","http://vk.com","http://google.com",maxdepth = 1)
+    crawl_urls("http://ya.ru","http://google.com",maxdepth = 1)
